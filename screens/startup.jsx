@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, View, ImageBackground, Button } from "react-native";
 import background from "../assets/splash.png";
-import LoginScreen from "./login";
+import LOginScreen from "./login";
 const StartupScreen = ({ navigation }) => {
   return (
     <ImageBackground source={background} style={styles.backgroundImage}>

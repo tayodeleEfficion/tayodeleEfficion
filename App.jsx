@@ -54,7 +54,7 @@ const App = () => {
           options={{
             title: "Aradugbo Sign up",
             headerStyle: {
-              backgroundColor: "#f4511e"
+              backgroundColor: "#009387"
             },
             headerTintColor: "#fff",
             headerTitleStyle: {
@@ -68,7 +68,7 @@ const App = () => {
           options={{
             title: "Home",
             headerStyle: {
-              backgroundColor: "#f4511e"
+              backgroundColor: "#009387"
             },
             headerTintColor: "#fff",
             headerTitleStyle: {
