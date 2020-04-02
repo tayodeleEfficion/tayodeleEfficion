@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, UseEffect } from "react";
 import { Text, StyleSheet, View, ImageBackground, Button } from "react-native";
 import StartupScreen from "./screens/startup";
 import LoginScreen from "./screens/login";
