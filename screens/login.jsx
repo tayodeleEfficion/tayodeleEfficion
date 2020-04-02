@@ -21,6 +21,34 @@ class LoginScreen extends Component {
       .signInWithEmailAndPassword(email, password)
       .catch(error => this.setState({ errorMessage: error.message }));
   };
+
+  // facebook login
+  FacebooklLogIn = async () => {
+    try {
+      await Facebook.initializeAsync("264890371190721");
+      const {
+        type,
+        token,
+        expires,
+        permissions,
+        declinedPermissions
+      } = await Facebook.logInWithReadPermissionsAsync({
+        permissions: ["public_profile"]
+      });
+      if (type === "success") {
+        // Get the user's name using Facebook's Graph API
+        const response = await fetch(
+          `https://graph.facebook.com/me?access_token=${token}`
+        );
+        Alert.alert("Logged in!", `Hi ${(await response.json()).name}!`);
+      } else {
+        // type === 'cancel'
+      }
+    } catch ({ message }) {
+      alert(`Facebook Login Error: ${message}`);
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -62,7 +90,10 @@ class LoginScreen extends Component {
             Google Login
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.facebookButton}>
+        <TouchableOpacity
+          style={styles.facebookButton}
+          onPress={this.FacebooklLogIn}
+        >
           <Text style={{ color: "#fff", fontWeight: "bold" }}>
             Facebook Login
           </Text>
@@ -72,7 +103,7 @@ class LoginScreen extends Component {
           onPress={() => this.props.navigation.navigate("Sign Up Page")}
         >
           <Text style={{ color: "#414959 ", fontSize: 13 }}>
-            New To Aradugbo App ?{" "}
+            Already Have An Account?{" "}
             <Text style={{ fontWeight: "bold", color: "#E9446A" }}>
               Sign Up
             </Text>

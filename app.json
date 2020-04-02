@@ -3,6 +3,9 @@
         "name": "Aradugbo App",
         "slug": "AradugboMock",
         "privacy": "public",
+        "facebookScheme": "fb264890371190721",
+        "facebookAppId": "264890371190721",
+        "facebookDisplayName": "Aradugbo",
         "sdkVersion": "36.0.0",
         "platforms": [
             "ios",
